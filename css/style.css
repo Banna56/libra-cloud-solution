@@ -1,0 +1,306 @@
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;400&display=swap');
+
+:root {
+    --primary-color: #047aed;
+    --secondary-color: #1c3fa8;
+    --dark-color: #002240;
+    --light-color: #f4f4f4;
+    --success-color: #5cb85c;
+    --error-color: #d9534f;
+}
+
+*{
+    margin: 0;
+    padding: 0;
+    font-family: 'Poppins', sans-serif;
+    box-sizing: border-box;
+}
+body{
+    color: #333;
+    line-height: 1.6;
+    font-weight: 300;
+}
+
+ul{
+    list-style-type: none;
+}
+
+a{
+    text-decoration: none;
+    color: #333;
+}
+
+h1,h2{
+    font-weight: 300;
+    line-height: 1.2;
+    margin: 10px 0;
+}
+
+p{
+    margin: 10px 0;
+}
+
+img{
+    width: 100%;
+}
+
+/* ----- Nav Bar Styling ----- */
+.navbar{
+    background-color: var(--primary-color);
+    color: white;
+    height: 70px;
+}
+
+.navbar .flex{
+    justify-content: space-between;
+}
+
+.navbar ul{
+    display: flex;
+}
+.navbar a{
+    color: white;
+    padding: 10px;
+    margin: 0 5px;
+}
+.navbar a:hover{
+    border-bottom: 2px solid #fff;
+}
+
+/* Showcase section */
+.showcase{
+    height: 400px;
+    background-color: var(--primary-color);
+    position: relative;
+    color: #fff;
+}
+
+.showcase-text {
+    animation: slideInFromLeft 1s ease-in;
+}
+
+.showcase::before, .showcase::after{
+    content: '';
+    position: absolute;
+    height: 100px;
+    right: 0;
+    left: 0;
+    bottom: -70px;
+    background-color: white;
+    transform: skewY(-3deg);
+    -webkit-transform: skewY(-3deg);
+    -moz-transform: skewY(-3deg);
+    -ms-transform: skewY(-3deg);
+}
+
+.showcase .grid{
+    overflow: visible;
+    grid-template-columns: 55% 45%;
+    gap: 30px;
+}
+
+.showcase-form{
+    position: relative;
+    top: 60px;
+    height: 350px;
+    width: 90%;
+    padding: 40px;
+    z-index: 100;
+    justify-self: flex-end;
+    animation: slideInFromRight 1s ease-in;
+}
+
+.showcase-form .form-control{
+    margin: 30px 0;
+}
+
+.showcase-form input[type="text"],
+.showcase-form input[type="email"]{
+    border: none;
+    border-bottom: 1px solid #b4becb;
+    width: 100%;
+    padding: 3px;
+    font-size: 16px;
+}
+
+.showcase-form input:focus{
+    outline: none;
+}
+
+.showcase h1{
+    font-size: 40px;
+}
+.showcase p{
+    margin: 20px 0;
+}
+
+/* Stats styling */
+.stats{
+    padding-top: 100px;
+    animation: slideInFromBottom 1s ease-in;
+}
+.stats-textbox h3{
+    font-weight: 400;
+}
+
+.stats .grid h3{
+    font-size: 35px;
+    font-weight: 300;
+}
+.stats .grid p{
+    font-weight: 400;
+    font-size: 20px;
+}
+
+/* Cli styling */
+
+.cli .grid{
+    grid-template-columns: repeat(3, 1fr);
+    grid-template-rows: repeat(2, 1fr);
+}
+
+.cli .grid img{
+    grid-column: 1/ span 2;
+    grid-row: 1 / span 2;
+}
+
+.cli .card h3{
+    font-weight: 400;
+}
+
+/* Cloud Styling */
+.cloud .grid{
+    grid-template-columns: 4fr 3fr;
+}
+
+/* Languages styling */
+.languages .flex{
+    flex-wrap: wrap;
+}
+
+.languages .card {
+    text-align: center;
+    margin: 18px 10px 40px;
+    transition: transform 0.2s ease-in;
+}
+
+.languages .card:hover {
+    transform: translateY(-15px);
+  }
+
+.languages h3{
+    font-weight: 300;
+}
+
+/* Footer styling */
+footer{
+    background-color: var(--dark-color);
+    color: white;
+}
+footer h3{
+    font-weight: 300;
+}
+footer nav ul a{
+    color: #fff;
+}
+
+footer .icons{
+    color: #fff;
+    cursor: pointer;
+    font-size: 24px;
+}
+
+footer .icons .fa:hover{
+    color: var(--primary-color);
+}
+
+
+footer .grid{
+    grid-template-columns: 3fr 2fr 3fr;
+}
+
+/* Animations */
+@keyframes slideInFromLeft {
+    0% {
+      transform: translateX(-100%);
+    }
+  
+    100% {
+      transform: translateX(0);
+    }
+  }
+  
+  @keyframes slideInFromRight {
+    0% {
+      transform: translateX(100%);
+    }
+  
+    100% {
+      transform: translateX(0);
+    }
+  }
+  
+  @keyframes slideInFromTop {
+    0% {
+      transform: translateY(-100%);
+    }
+  
+    100% {
+      transform: translateX(0);
+    }
+  }
+  
+  @keyframes slideInFromBottom {
+    0% {
+      transform: translateY(100%);
+    }
+  
+    100% {
+      transform: translateX(0);
+    }
+  }
+  
+
+/* Responsive design for mobile devices */
+@media (max-width: 768px){
+    .grid, 
+    .showcase .grid, 
+    .stats .grid, 
+    .cli .grid, 
+    .cloud .grid ,
+    footer .grid{
+        grid-template-columns: 1fr;
+        grid-template-rows: 1fr;
+    }
+    
+    
+    .showcase{
+        height: auto;
+    }
+    .showcase-text {
+        text-align: center;
+        margin-top: 40px;
+        animation: slideInFromTop 1s ease-in;
+    }
+
+    .showcase-form{
+        animation: slideInFromBottom 1s ease-in;
+    }
+
+    .cli .grid img{
+        grid-column: 1;
+        grid-row: 1;
+    }
+    .cloud .text-center h2{
+        font-size: 2.5rem;
+    }
+    .lead{
+        font-size: 18px;
+    }
+    footer{
+        padding-left: 2rem;
+    }
+    .p-1{
+        padding-left: 0;
+    }
+}
